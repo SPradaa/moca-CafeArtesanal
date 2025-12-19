@@ -1,0 +1,132 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+   background-color: #7357378e;
+   width: 100%;
+   height: auto;
+}
+.container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    padding-bottom: 12vh;
+    flex-direction: column;
+}
+.form-login , .form-registro{
+    width: 30%;
+    margin: auto;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 20px;
+   display:flex;
+   flex-direction: column;
+}
+.login-icon{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.form-registro{
+    display: none;
+}
+.logo-moca{
+    width: 80px;
+    height: 80px;
+}
+.btns{
+    width: 50%;
+    height: 10vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    bottom: 0;
+    z-index: 1000;
+}
+.btn-registro, .btn-login{
+    width: 40%;
+    height: 5vh;
+    border-radius: 20px;
+    border: none;
+    background-color: #735737;
+    color: #fff;
+    font-size: 16px;
+    font-weight: 500;
+    cursor: pointer;
+}
+.btn-registro:hover, .btn-login:hover{
+    background-color: #d4a574;
+}
+.title{
+    text-align: center;
+    font-size: 24px;
+    font-weight: 500;
+    font-family: quicksand, sans-serif;
+}
+.subtitle{
+    text-align: center; 
+    margin-top: 2%;
+    font-size: 20px;
+    font-weight: 500;
+    font-family: caveat, sans-serif;
+}
+.labels{
+    margin-top: 4%;
+    margin-left: 3%;
+    font-size: 18px;
+    font-weight: 500;
+    font-family: quicksand, sans-serif;
+}
+.inputs{
+    margin-top: 3%;
+     margin-left: 3%;
+    font-family: quicksand, sans-serif;
+    padding: 10px;
+    border-radius: 20px;
+    border: none;
+    outline: none;
+    font-size: 16px;
+    
+}
+.btn-form-login{
+    width: 50%;
+    height: 5vh;
+    margin-top: 4%;
+    margin-left: 3%;
+    border-radius: 20px;
+    border: none;
+    background-color: #d4a574;
+    color: #000000;
+    font-size: 16px;
+    font-weight: 500;
+    font-family: quicksand, sans-serif;
+    cursor: pointer;
+}
+.btn-form-login:hover{
+    color: #fff;
+}
+.error{
+    font-weight: 500;
+    font-family: quicksand, sans-serif;
+    color: red;
+    margin-top: 2%;
+    text-align: center;
+}
+@media screen and (max-width: 728px) {
+   
+  .form-login , .form-registro{
+    width: 80%;
+    height: auto;
+  }  
+  .logo-moca{
+    width: 80px;
+    height: 80px;
+  }
+}
