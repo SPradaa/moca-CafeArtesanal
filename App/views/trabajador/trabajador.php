@@ -62,7 +62,7 @@
 
                 <div class="card" id="card-total-pedidos">
                     Total Pedidos<br>
-                    <strong id="total-pedidos">0</strong>
+                    <strong id="general-pedidos">0</strong>
                 </div>
 
                 <div class="card" id="card-pendientes">
@@ -86,24 +86,26 @@
                 </div>
 
             </section>
+
+            
             <!-- ================= FIN ESTADÍSTICAS ================= -->
 
 
             <!-- ================= CONTENIDO DINÁMICO ================= -->
             <section class="content" id="total-pedidos">
-                <p>No hay pedidos</p>
+                <p>No hay pedidos el dia de hoy</p>
             </section>
-            <section class="content " id="pendientes">
-                <p>No hay pedidos</p>
+            <section class="content " id="total-pendientes">
+                <p>No hay pedidos Pendientes</p>
             </section>
-            <section class="content" id="preparacion">
-                <p>No hay pedidos</p>
+            <section class="content" id="total-preparacion">
+                <p>No hay pedidos en Preparación</p>
             </section>
-            <section class="content" id="entregados">
-                <p>No hay pedidos</p>
+            <section class="content" id="total-entregados">
+                <p>No hay pedidos Entregados</p>
             </section>
-            <section class="content" id="ventas">
-                <p>No hay pedidos</p>
+            <section class="content" id="total-ventas">
+                <p>No hay ingresos aun </p>
             </section>
 
         </main>

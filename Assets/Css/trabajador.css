@@ -151,7 +151,7 @@ body {
     color: #999;
 }
 
-#pendientes, #preparacion, #entregados, #ventas {
+#total-pendientes, #total-preparacion, #total-entregados, #total-ventas {
     display: none;
 }
 /* ================= RESPONSIVE (MÓVIL) =================== */
@@ -166,40 +166,38 @@ body {
         top: 0;
         left: 0;
         height: 100vh;
-        width: 85%; /* Un poco más ancho para legibilidad */
+        width: 85%; 
         max-width: 320px;
         transform: translateX(-100%);
         z-index: 2000;
         box-shadow: 8px 0 25px rgba(0,0,0,0.4);
-        padding: 2.5rem 1.8rem; /* Padding aumentado */
+        padding: 2.5rem 1.8rem; 
     }
 
     .sidebar.active {
         transform: translateX(0);
     }
 
-    /* Títulos y enlaces del menú más grandes */
+   
     .sidebar-header h2 { font-size: 2.5rem; }
     .menu a {
-        font-size: 1.4rem; /* Texto de menú más grande */
-        padding: 1.2rem;   /* Más área de toque */
+        font-size: 1.4rem; 
+        padding: 1.2rem;   
         margin-bottom: 0.5rem;
     }
 
-    /* Botón cerrar X gigante */
     .close {
         display: block;
         font-size: 2.5rem; 
         padding: 10px;
     }
 
-    /* --- CONTENIDO PRINCIPAL --- */
+
     .main {
-        padding: 1.5rem; /* Más margen lateral */
-        padding-bottom: 100px; /* Más espacio por el menú inferior alto */
+        padding: 1.5rem; 
+        padding-bottom: 100px; 
     }
 
-    /* Header con botón de menú grande */
     .main-header {
         gap: 1.5rem;
         margin-bottom: 2.5rem;
@@ -207,7 +205,7 @@ body {
 
     .open {
         display: block;
-        font-size: 1.4rem; /* Texto de botón más grande */
+        font-size: 1.4rem; 
         padding: 12px 20px;
         font-weight: bold;
     }
@@ -216,7 +214,6 @@ body {
         font-size: 2.4rem;
     }
 
-    /* --- ESTADÍSTICAS (2 POR FILA GIGANTES) --- */
     .stats {
         display: grid;
         grid-template-columns: 1fr 1fr;
@@ -225,26 +222,27 @@ body {
 
     .title-stats {
         grid-column: span 2;
-        font-size: 3.5rem; /* Título "Pedidos" muy grande */
+        font-size: 3.5rem;
         margin-bottom: 1rem;
     }
 
     .card {
-        padding: 2.5rem 1rem; /* Mucho más alto */
-        font-size: 1.3rem;    /* Texto "Total Pedidos" más grande */
+        padding: 2.5rem 1rem; 
+        font-size: 1.3rem;    
         display: flex;
         flex-direction: column;
         justify-content: center;
-        border-radius: 20px;  /* Bordes más redondeados y modernos */
+        border-radius: 20px;  
     }
 
     .card strong {
-        font-size: 3rem;      /* Números gigantes para ver de lejos */
+        font-size: 3rem;      
+
         margin-top: 0.8rem;
         color: #6b4f2a;
     }
 
-    /* Tarjeta de Ventas al final */
+
     .card:last-child {
         grid-column: span 2;
         padding: 2rem;
@@ -254,19 +252,18 @@ body {
         font-size: 3.5rem;
     }
 
-    /* --- MENÚ INFERIOR XL --- */
     .menu-bottom {
         display: flex;
         position: fixed;
         bottom: 0;
-        height: 80px; /* Menú más alto */
+        height: 80px; 
         background: #6b4f2a;
         align-items: center;
         z-index: 1500;
     }
 
     .menu-bottom a {
-        font-size: 2.2rem; /* Iconos mucho más grandes */
+        font-size: 2.2rem; 
         flex: 1;
         text-align: center;
     }
