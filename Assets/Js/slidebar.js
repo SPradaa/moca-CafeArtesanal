@@ -3,7 +3,7 @@ const sidebar = document.getElementById('sidebar');
 const btnClose = document.getElementById('btnClose');
 const btnOpen = document.getElementById('btnOpen');
 
-// variables para cambio de funciones
+// variables para cambio de funciones sidebar
 const menuPedidos = document.getElementById('menu-pedidos');
 const menuProductos = document.getElementById('menu-productos');
 const menuMesas = document.getElementById('menu-mesas');
@@ -24,6 +24,19 @@ const totalPreparacion    = document.getElementById('total-preparacion');
 const totalEntregados     = document.getElementById('total-entregados');
 const totalVentas         = document.getElementById('total-ventas');
 
+// variables para cambio de estadisticas y productos
+const contenedorPedidos = document.getElementById('pedidos');
+const contenedorProductos = document.getElementById('productos');
+const contenedorMesas = document.getElementById('mesas');
+const contenedorCategorias = document.getElementById('categorias');
+const contenedorUsuarios = document.getElementById('usuarios');
+
+//boton para abrir modal de nuevo producto
+const NewProduct = document.getElementById('NewProduct');
+
+//Modal para crear producto
+const CreateProduct = document.getElementById('CreateProduct');
+
 btnClose.addEventListener('click', () => {
     sidebar.classList.add('closed');
     sidebar.style.display = 'none';
@@ -35,6 +48,8 @@ btnOpen.addEventListener('click', () => {
     sidebar.style.display = 'block';
     btnOpen.style.display = 'none';
 });
+
+// pedidos en diferentes estados
 
 totalPedidos.addEventListener('click', () => {
     pedidosGeneral.style.display = 'block';
@@ -74,5 +89,61 @@ ventas.addEventListener('click', () => {
     totalPreparacion.style.display = 'none';
     totalEntregados.style.display = 'none';
     totalVentas.style.display = 'block';
+});
+
+//Menu de los diferentes contenedores del sidebar
+
+menuPedidos.addEventListener('click', () => {
+    contenedorPedidos.style.display = 'flex';
+    contenedorProductos.style.display = 'none';
+    contenedorMesas.style.display = 'none';
+    contenedorCategorias.style.display = 'none';
+    contenedorUsuarios.style.display = 'none';
+    pedidosGeneral.style.display = 'block';
+});
+
+menuProductos.addEventListener('click', () => {
+    contenedorPedidos.style.display = 'none';
+    contenedorProductos.style.display = 'flex';
+    pedidosGeneral.style.display = 'none';
+    contenedorMesas.style.display = 'none';
+    contenedorCategorias.style.display = 'none';
+    contenedorUsuarios.style.display = 'none';
+});
+menuMesas.addEventListener('click', () => {
+    contenedorPedidos.style.display = 'none';
+    contenedorProductos.style.display = 'none';
+    pedidosGeneral.style.display = 'none';
+    contenedorMesas.style.display = 'flex';
+    contenedorCategorias.style.display = 'none';
+    contenedorUsuarios.style.display = 'none';
+});
+menuCategorias.addEventListener('click', () => {
+    contenedorPedidos.style.display = 'none';
+    contenedorProductos.style.display = 'none';
+    pedidosGeneral.style.display = 'none';
+    contenedorCategorias.style.display = 'flex';
+    contenedorMesas.style.display = 'none';
+    contenedorUsuarios.style.display = 'none';
+});
+menuUsuarios.addEventListener('click', () => {
+    contenedorPedidos.style.display = 'none';
+    contenedorProductos.style.display = 'none';
+    pedidosGeneral.style.display = 'none';
+    contenedorUsuarios.style.display = 'flex';
+    contenedorMesas.style.display = 'none';
+    contenedorCategorias.style.display = 'none';
+});
+
+// Modal de nuevo producto
+
+CreateProduct.addEventListener('click', () => {
+    NewProduct.style.display = 'flex';
+});
+
+NewProduct.addEventListener('click', (e) => {
+    if(e.target===NewProduct){
+    NewProduct.style.display = 'none';
+    }
 });
 

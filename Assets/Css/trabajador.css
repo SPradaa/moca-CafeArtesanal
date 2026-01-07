@@ -154,6 +154,131 @@ body {
 #total-pendientes, #total-preparacion, #total-entregados, #total-ventas {
     display: none;
 }
+
+.btnAgregar {
+    background: none;
+    font-size: 1.2rem;
+    color: #6b4f2a;
+    padding: 8px 15px;
+    border-radius: 8px;
+    cursor: pointer;
+    border: 2px solid #6b4f2a;
+}
+.productos {
+    display: none;
+    flex-direction: column;
+}
+.viewProducts {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+}
+.unidProduc {
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    justify-content: center;
+    gap: 1rem;
+    border: 1px solid #6b4f2a;
+    padding: 1rem;
+    border-radius: 12px;
+}
+
+.mesas {
+    display: none;
+}
+
+.categorias {
+    display: none;
+}
+
+.usuarios {
+    display: none;
+}
+
+.unidProduc:hover {
+    background: #6b4f2a;
+    color: white;
+}
+/* ==================Modales =================== */
+.CreateProduct {
+    display: none;
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+    background: rgba(0,0,0,0.5);
+    justify-content: center;
+    align-items: center;
+}
+.nuevoProducto {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background: #fff;
+    padding: 2rem;
+    border-radius: 12px;
+    width: 50%;
+    max-width: 500px;
+    height: auto;
+    padding: 5rem 4rem;
+}
+.modal-header{
+    width:100%;
+    display:flex;
+    justify-content:space-between;
+    margin-bottom:1rem;
+}
+
+.modal-header h2{
+    font-size:1.2rem;
+    color:#4a3428;
+}
+
+.modal-header .close{
+    cursor:pointer;
+}
+
+.modal-body{
+    width:100%;
+    display:flex;
+    flex-direction:column;
+    gap:.6rem;
+}
+
+.modal-body input{
+    padding:.6rem .8rem;
+    border:1px solid #ddd;
+    border-radius:8px;
+    font-size:.85rem;
+}
+
+.modal-footer{
+    width:100%;
+    display:flex;
+    justify-content:flex-end;
+    margin-top:1rem;
+}
+
+.modal-footer button{
+    background:#6b4f3f;
+    color:#fff;
+    border:none;
+    padding:.6rem 1.5rem;
+    border-radius:10px;
+    cursor:pointer;
+}
+.selectRegistro{
+     padding:.6rem .8rem;
+    border:1px solid #ddd;
+    border-radius:8px;
+    font-size:.85rem;
+}
 /* ================= RESPONSIVE (MÓVIL) =================== */
 @media screen and (max-width: 768px) {
     .layout {
