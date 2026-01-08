@@ -1,4 +1,4 @@
-/* RESET */
+/* ================= RESET ================= */
 * {
     margin: 0;
     padding: 0;
@@ -17,6 +17,9 @@ body {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    position: sticky;
+    top: 0;
+    z-index: 100;
 }
 
 .logo-texto {
@@ -70,6 +73,8 @@ body {
     height: 70vh;
     overflow: hidden;
     z-index: 1;
+    border: 1px solid #6b4f2a;
+    box-shadow: 0 20px 50px -20px #6b4f2a;
 }
 
 .imagen-banner {
@@ -139,47 +144,94 @@ body {
     color: #fff;
 }
 
-/* ================= RESPONSIVE ================= */
+/* ================= CONTENEDOR PRODUCTOS ================= */
 
+.containerProductos {
+    width: 100%;
+    height: auto;
+    min-height: 40vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 2rem;
+    background-color: #df1818;
+}
+.logoFooter{
+    width: 35%;
+    height: auto;
+}
+/* ================= RESPONSIVE ================= */
 @media screen and (max-width: 768px) {
 
-    /* HEADER */
+    /* ================= HEADER ================= */
+
     .header {
         flex-direction: column;
+        position: sticky;
+        top: 0;
+        z-index: 100;
     }
 
-    .logo-texto {
-        margin-left: 0;
-    }
-
-    .logo {
+     .logo-texto {
+        display: flex;
         flex-direction: column;
-        padding: 0;
+        justify-content: center;   /* ← CLAVE */
+        align-items: flex-start;
+        line-height: 1.1;          /* mejora visual */
+    }
+
+
+    /* LOGO + TEXTO EN FILA (MÓVIL) */
+    .logo {
+        flex-direction: row;          /* ← cambio clave */
+        justify-content: center;
+        align-items: center;
+        gap: 0.5rem;
+        padding: 0.5rem 0;
+        margin-left: -8%;
     }
 
     .imagen-logo {
-        width: 20%;
-        margin-left: 0;
+        width: 25%;          /* ← LOGO MÁS GRANDE */
+        max-width: 80px;     /* evita que se vuelva gigante */
+        height: auto;
+    }
+
+    .logo-texto {
+        align-items: flex-start;
+        text-align: left;
     }
 
     .navegacion {
         margin: 1rem 0;
     }
 
-    /* BANNER */
-    .imagen-banner {
-        height: 70%;
+    /* ================= BANNER ================= */
+
+    .banner {
+        height: auto;
+        aspect-ratio: 16 / 9;
     }
 
-    /* FOOTER */
+    .imagen-banner {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+
+    /* ================= FOOTER ================= */
+
     .footer-contenedor {
         flex-direction: column;
         align-items: center;
         justify-content: center;
     }
-    .footer-contenido{
+
+    .footer-contenido {
         width: 100%;
     }
+
     .horario,
     .contacto,
     .horario-texto,
@@ -190,7 +242,8 @@ body {
         justify-content: center;
         text-align: center;
     }
-    .footer-adicionales{
+
+    .footer-adicionales {
         flex-direction: column;
         align-items: center;
         justify-content: center;

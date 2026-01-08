@@ -55,7 +55,15 @@
                 <h1 class="title-main">Mocca - Cafetería</h1>
             </header>
 
-            <!-- ================= ESTADÍSTICAS ================= -->
+            <!-- ================= MENSAJE DE ÉXITO ================= -->
+            <?php if (isset($_GET['success']) && $_GET['success'] === 'producto_creado'): ?>
+                <div class="mensaje-exito">
+                    <strong>✔ Producto creado correctamente</strong>
+                    <span class="cerrar" onclick="this.parentElement.style.display='none'">✕</span>
+                </div>
+            <?php endif; ?>
+
+            <!-- ================= ESTADÍSTICAS PEDIDOS ================= -->
             <section class="stats" id="pedidos">
 
                 <p class="title-stats">Pedidos</p>
@@ -85,34 +93,71 @@
                     <strong id="ventas">$0</strong>
                 </div>
 
+                
+
             </section>
 
+            <!-- ================= ESTADÍSTICAS PRODUCTOS ================= -->
             <section class="stats productos" id="productos">
 
                 <p class="title-stats">Productos</p>
+
                 <div class="card">
                     Total Productos<br>
-                    <strong id="general-productos">0</strong>
+                    <strong id="general-productos"><?php echo $CountProductos; ?></strong>
                     <button class="btnAgregar" id="CreateProduct">Agregar Producto</button>
                 </div>
 
+                <div class="buscador-productos">
+    <input type="text"id="buscarProducto"placeholder="Buscar producto por nombre..." autocomplete="off" >
+</div>
+
+                <!-- Producto de ejemplo -->
                 <div class="card">
-                    <div class="unidProduc">
-                        <div class="viewProducts">
-                            <img src="./Assets/Images/GranoCafe.png" alt="taza de cafe" width="100px" height="100px">
-                            <h4 class="producName">Taza de cafe</h4>
-                            <p class="producPrice">$10</p>
-                            <p class="prducPriceDesc">$9.99</p>
-                            <p class="disponible">Disponible</p>
+                   
+                     <?php foreach ($productos as $producto): ?>
+    <div class="unidProduc">
+        <div class="viewProducts">
 
-                        </div>
+            <!-- Imagen del producto -->
+            <img 
+                src="<?= $producto['imagen_url'] ?>" 
+                alt="<?= htmlspecialchars($producto['nombre']) ?>" 
+                width="100" 
+                height="100"
+            >
 
+            <!-- Nombre -->
+            <h4 class="producName">
+                <?= htmlspecialchars($producto['nombre']) ?>
+            </h4>
 
-                    </div>
+            <!-- Precio -->
+            <p class="producPrice">
+                $<?= number_format($producto['precio'], 2) ?>
+            </p>
+
+            <!-- Precio con descuento -->
+            <?php if (!empty($producto['precioDescuento'])): ?>
+                <p class="prducPriceDesc">
+                    $<?= number_format($producto['precioDescuento'], 2) ?>
+                </p>
+            <?php endif; ?>
+
+            <!-- Estado -->
+            <p class="disponible">
+                <?= htmlspecialchars($producto['estado']) ?>
+            </p>
+
+        </div>
+    </div>
+<?php endforeach; ?>
 
                 </div>
+
             </section>
 
+            <!-- ================= ESTADÍSTICAS MESAS ================= -->
             <section class="stats mesas" id="mesas">
                 <p class="title-stats">Mesas</p>
                 <div class="card">
@@ -121,6 +166,7 @@
                 </div>
             </section>
 
+            <!-- ================= ESTADÍSTICAS CATEGORÍAS ================= -->
             <section class="stats categorias" id="categorias">
                 <p class="title-stats">Categorías</p>
                 <div class="card">
@@ -129,6 +175,7 @@
                 </div>
             </section>
 
+            <!-- ================= ESTADÍSTICAS USUARIOS ================= -->
             <section class="stats usuarios" id="usuarios">
                 <p class="title-stats">Usuarios</p>
                 <div class="card">
@@ -137,24 +184,23 @@
                 </div>
             </section>
 
-
-
-            <!-- ================= FIN ESTADÍSTICAS ================= -->
-
-
             <!-- ================= CONTENIDO DINÁMICO ================= -->
             <section class="content" id="total-pedidos">
                 <p>No hay pedidos el dia de hoy</p>
             </section>
-            <section class="content " id="total-pendientes">
+
+            <section class="content" id="total-pendientes">
                 <p>No hay pedidos Pendientes</p>
             </section>
+
             <section class="content" id="total-preparacion">
                 <p>No hay pedidos en Preparación</p>
             </section>
+
             <section class="content" id="total-entregados">
                 <p>No hay pedidos Entregados</p>
             </section>
+
             <section class="content" id="total-ventas">
                 <p>No hay ingresos aun </p>
             </section>
@@ -166,22 +212,28 @@
     <!-- ================= FIN LAYOUT ================= -->
 
 
-    <!-- ================= MODALES ================= -->
-
-
+    <!-- ================= MODAL CREAR PRODUCTO ================= -->
     <div class="CreateProduct" id="NewProduct">
 
-        <form action="" class="nuevoProducto">
+        <form action="index.php?ruta=createProduct"
+              class="nuevoProducto"
+              enctype="multipart/form-data"
+              method="POST">
+
+            <!-- Header modal -->
             <div class="modal-header">
                 <h2>Agregar Producto</h2>
                 <span class="close" id="btnCloseModal">✕</span>
             </div>
+
+            <!-- Cuerpo modal -->
             <div class="modal-body">
                 <input type="text" placeholder="Nombre del Producto" name="nombreNuevoProducto" required>
                 <input type="number" placeholder="Precio del Producto" name="precioNuevoProducto" required>
-                <input type="number" placeholder="Precio Descuento del Producto" name="precioDescuentoNuevoProducto" >
+                <input type="number" placeholder="Precio Descuento del Producto" name="precioDescuentoNuevoProducto">
                 <input type="text" placeholder="Descripción del Producto" name="descripcionNuevoProducto" maxlength="100" required>
-        
+
+                <!-- Select categorías -->
                 <select name="categorias" id="categorias" class="selectRegistro" required>
                     <option value="">Seleccionar Categoría</option>
                     <?php foreach ($categorias as $categoria) { ?>
@@ -191,9 +243,11 @@
                     <?php } ?>
                 </select>
 
+                <!-- Imagen del producto -->
                 <input type="file" placeholder="Imagen del Producto" accept="image/*" name="imagenNuevoProducto" required>
-                
-                <select name="estados" id="estados" class="selectRegistro" name="estadoNuevoProducto" required>
+
+                <!-- Estado del producto -->
+                <select id="estados" class="selectRegistro" name="estadoNuevoProducto" required>
                     <option value="">Seleccionar Estado</option>
                     <?php foreach ($estadosProductos as $estado) { ?>
                         <option value="<?php echo $estado['id_estado']; ?>">
@@ -202,18 +256,17 @@
                     <?php } ?>
                 </select>
             </div>
+
+            <!-- Footer modal -->
             <div class="modal-footer">
                 <button type="submit">Agregar</button>
             </div>
+
         </form>
     </div>
-
-
-
 
     <!-- ================= SCRIPTS ================= -->
     <script src="./Assets/Js/slidebar.js"></script>
 
 </body>
-
 </html>

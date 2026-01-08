@@ -147,3 +147,29 @@ NewProduct.addEventListener('click', (e) => {
     }
 });
 
+
+// Quitar mensaje de Exito cuando se crea un producto 
+    setTimeout(() => {
+        const msg = document.querySelector('.mensaje-exito');
+        if (msg) msg.style.display = 'none';
+    }, 3000);
+
+// buscador 
+
+const buscador = document.getElementById('buscarProducto');
+const productos = document.querySelectorAll('.unidProduc');
+
+buscador.addEventListener('keyup', function () {
+    const texto = buscador.value.toLowerCase();
+
+    productos.forEach(producto => {
+        const nombre = producto
+            .querySelector('.producName')
+            .textContent
+            .toLowerCase();
+
+        producto.style.display = nombre.includes(texto)
+            ? 'block'
+            : 'none';
+    });
+});

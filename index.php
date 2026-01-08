@@ -41,6 +41,10 @@ switch ($ruta) {
         $controllerTrabajador = new controllerTrabajador();
         $controllerTrabajador->trabajador($conn);
         break;
+    case "createProduct":
+        $controllerTrabajador = new controllerTrabajador();
+        $controllerTrabajador->createProduct($conn);
+        break;
 
     default:
         $controllerUser = new ControllerUser();
